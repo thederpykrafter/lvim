@@ -26,6 +26,9 @@ lvim.transparent_window = true
 -- make branch transparent
 lvim.builtin.lualine.sections.lualine_b = { "branch" }
 
+-- Enable markdown lsp
+require('lvim.lsp.manager').setup("marksman")
+
 -- Plugins
 lvim.plugins = {
   { -- Transparent
@@ -36,6 +39,7 @@ lvim.plugins = {
       require('transparent').clear_prefix 'BufferLine'
       require('transparent').clear_prefix 'Telescope'
       require('transparent').clear_prefix 'which'
+      require('transparent').clear_prefix 'Explorer'
       require('transparent').setup {
         groups = { -- table: default groups
           'Normal',
@@ -66,6 +70,8 @@ lvim.plugins = {
         },
         extra_groups = {
           'NormalFloat', -- plugins which have float panel such as Lazy, Mason, LspInfo
+          'TabLineFill',
+          'WinBarNC',
         },
       }
     end,
