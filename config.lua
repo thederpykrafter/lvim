@@ -1,7 +1,7 @@
 -- Vim settings
 vim.opt.shell = "pwsh.exe"
 vim.opt.shellcmdflag =
-  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
 vim.cmd [[
 		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
@@ -21,10 +21,12 @@ vim.g.clipboard = {
 }
 
 -- Lvim settings
-lvim.transparent_window = true
+--lvim.transparent_window = true
 
--- make branch transparent
+-- make branch default style
 lvim.builtin.lualine.sections.lualine_b = { "branch" }
+
+lvim.builtin.nvimtree.setup.filters.dotfiles = true
 
 -- Enable markdown lsp
 require('lvim.lsp.manager').setup("marksman")
@@ -70,11 +72,10 @@ lvim.plugins = {
         },
         extra_groups = {
           'NormalFloat', -- plugins which have float panel such as Lazy, Mason, LspInfo
-          'TabLineFill',
-          'WinBarNC',
+          'TabLineFill', -- tab seperator
+          'WinBarNC', -- Explorer label aboce NvimTree
         },
       }
     end,
   },
 }
-
