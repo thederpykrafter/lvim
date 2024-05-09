@@ -33,6 +33,7 @@ require('lvim.lsp.manager').setup("marksman")
 
 -- Plugins
 lvim.plugins = {
+  { 'wakatime/vim-wakatime', lazy = false },
   { -- Transparent
     'xiyaowong/transparent.nvim',
     config = function()
